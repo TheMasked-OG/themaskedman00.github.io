@@ -1,17 +1,22 @@
 function FindProxyForURL(url, host) {
-    // List of domains or URLs to route through the proxy
-    var proxyDomains = ["udonvr-db.github.io", "example.com", "bluekunvrc.github.io", "vrclinking.com", "linkingbotvrchat.github.io", "pastebin.com/raw/1djvT67N"];
+    // List of domains to route through the proxy
+    var proxyDomains = ["udonvr-db.github.io", "example.com", "bluekunvrc.github.io", "vrclinking.com", "linkingbotvrchat.github.io", "pastebin.com"];
 
-    // Proxy server address (change to your proxy IP and port)
-    var proxy = "PROXY 127.0.0.1:8080";  // Adjust the IP and port for your proxy
+    // Proxy server address
+    var proxy = "PROXY 127.0.0.1:8080";
 
-    // Check if the current host is in the list of proxy domains
+    // Route specific paths via proxy
+    if (shExpMatch(url, "*pastebin.com/raw/1djvT67N*")) {
+        return proxy;
+    }
+
+    // Check if the host matches any domain in the list
     for (var i = 0; i < proxyDomains.length; i++) {
-        if (dnsDomainIs(host, proxyDomains[i])) {
-            return proxy;  // Route through the proxy for matching domains
+        if (shExpMatch(host, "*" + proxyDomains[i] + "*")) {
+            return proxy;
         }
     }
 
-    // If the URL doesn't match, bypass the proxy
+    // If no match, connect directly
     return "DIRECT";
 }
