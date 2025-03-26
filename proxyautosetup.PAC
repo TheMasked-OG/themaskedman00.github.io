@@ -12,7 +12,7 @@ function FindProxyForURL(url, host) {
     var proxy = "PROXY 127.0.0.1:8080";
 
     // Route a specific URL via proxy
-    if (shExpMatch(url, "https://pastebin.com/raw/1djvT67N") || 
+    if (shExpMatch(url, "*pastebin.com*") || 
         shExpMatch(url, "http://pastebin.com/raw/1djvT67N")) {
         return proxy;
     }
