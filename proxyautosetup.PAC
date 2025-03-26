@@ -1,6 +1,6 @@
 function FindProxyForURL(url, host) {
     // List of domains to route through the proxy
-    var proxyDomains = ["udonvr-db.github.io", "example.com", "bluekunvrc.github.io", "vrclinking.com", "linkingbotvrchat.github.io", "pastebin.com"];
+    var proxyDomains = ["udonvr-db.github.io", "example.com", "bluekunvrc.github.io", "vrclinking.com", "linkingbotvrchat.github.io"];
 
     // Proxy server address
     var proxy = "PROXY 127.0.0.1:8080";
