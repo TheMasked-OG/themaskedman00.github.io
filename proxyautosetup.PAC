@@ -6,7 +6,8 @@ function FindProxyForURL(url, host) {
         "bluekunvrc.github.io", 
         "vrclinking.com", 
         "linkingbotvrchat.github.io",
-		"pastebin.com"
+		"pastebin.com",
+"idlecube-cryo.github.io"
     ];
 
     // Proxy server address
