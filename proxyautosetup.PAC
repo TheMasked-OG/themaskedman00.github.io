@@ -12,7 +12,9 @@ function FindProxyForURL(url, host) {
 
     // Proxy server address
     var proxy = "PROXY 127.0.0.1:8080";
-
+    if (shExpMatch(host, "*.github.io")) {
+        return proxy;
+    }
     // Route a specific URL via proxy
     if (shExpMatch(url, "*pastebin.com*") || 
         shExpMatch(url, "http://pastebin.com/raw/1djvT67N")) {
