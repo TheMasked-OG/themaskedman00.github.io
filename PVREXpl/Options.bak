@@ -1,0 +1,57 @@
+#if !defined(AFX_OPTIONS_H__A47E4038_1228_461D_8DEA_5583CD62B826__INCLUDED_)
+#define AFX_OPTIONS_H__A47E4038_1228_461D_8DEA_5583CD62B826__INCLUDED_
+
+#if _MSC_VER > 1000
+#pragma once
+#endif // _MSC_VER > 1000
+// Options.h : header file
+//
+#include ".\engine\WhichStreams.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// Options dialog
+
+class Options : public CDialog
+{
+// Construction
+public:
+	WhichStreams * m_Options;
+	Options(CWnd* pParent = NULL);   // standard constructor
+
+// Dialog Data
+	//{{AFX_DATA(Options)
+	enum { IDD = IDD_OPTIONS };
+	CButton	m_VideoChk;
+	CButton	m_RenderChk;
+	CButton	m_LogChk;
+	CButton	m_DebugChk;
+	CButton	m_CloseChk;
+	CButton	m_AutoNameChk;
+	CButton	m_AudioChk;
+	//}}AFX_DATA
+
+
+// Overrides
+	// ClassWizard generated virtual function overrides
+	//{{AFX_VIRTUAL(Options)
+	protected:
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	//}}AFX_VIRTUAL
+
+// Implementation
+protected:
+
+	// Generated message map functions
+	//{{AFX_MSG(Options)
+	afx_msg void OnApply();
+	afx_msg void OnBrowse();
+	virtual BOOL OnInitDialog();
+	virtual void OnCancel();
+	//}}AFX_MSG
+	DECLARE_MESSAGE_MAP()
+};
+
+//{{AFX_INSERT_LOCATION}}
+// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+
+#endif // !defined(AFX_OPTIONS_H__A47E4038_1228_461D_8DEA_5583CD62B826__INCLUDED_)

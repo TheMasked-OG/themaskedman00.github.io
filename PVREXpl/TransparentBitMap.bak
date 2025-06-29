@@ -1,0 +1,58 @@
+#if !defined(AFX_TRANSPARENTBITMAP_H__1A2884B9_B12D_4C75_B336_B9256B1C0AE5__INCLUDED_)
+#define AFX_TRANSPARENTBITMAP_H__1A2884B9_B12D_4C75_B336_B9256B1C0AE5__INCLUDED_
+
+#if _MSC_VER > 1000
+#pragma once
+#endif // _MSC_VER > 1000
+// TransparentBitMap.h : header file
+//
+
+/////////////////////////////////////////////////////////////////////////////
+// TransparentBitMap window
+
+class TransparentBitMap : public CWnd
+{
+// Construction
+public:
+	TransparentBitMap(UINT ResourceNum, int bx, int by, CWnd *Parent);
+
+// Attributes
+public:
+
+// Operations
+public:
+
+// Overrides
+	// ClassWizard generated virtual function overrides
+	//{{AFX_VIRTUAL(TransparentBitMap)
+	//}}AFX_VIRTUAL
+
+// Implementation
+public:
+	virtual ~TransparentBitMap();
+
+	// Generated message map functions
+protected:
+	//{{AFX_MSG(TransparentBitMap)
+	afx_msg void OnPaint();
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	//}}AFX_MSG
+	DECLARE_MESSAGE_MAP()
+private:
+	void	DrawIt(HDC Dest);
+	void	GetAndXorMasks(CBitmap *Src, CBitmap *And, CBitmap *Xor);
+
+	
+	int m_SizeY;
+	int m_SizeX;
+	CBitmap m_XorMask;
+	CBitmap m_AndMask;
+	CBitmap m_BitMap;
+};
+
+/////////////////////////////////////////////////////////////////////////////
+
+//{{AFX_INSERT_LOCATION}}
+// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+
+#endif // !defined(AFX_TRANSPARENTBITMAP_H__1A2884B9_B12D_4C75_B336_B9256B1C0AE5__INCLUDED_)

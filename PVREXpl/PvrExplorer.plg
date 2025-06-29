@@ -1,0 +1,140 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: PvrExplorer - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Release/PvrExplorer.res" /d "NDEBUG" "G:\PvrExplorerPro\Win\PvrExplorer.rc"" 
+Creating temporary file "C:\DOCUME~1\davidson\LOCALS~1\Temp\RSP4B.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/PvrExplorer.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"G:\PvrExplorerPro\Win\AboutBox.cpp"
+"G:\PvrExplorerPro\Win\CustomButton.cpp"
+"G:\PvrExplorerPro\Win\CustomProgress.cpp"
+"G:\PvrExplorerPro\Win\CustomText.cpp"
+"G:\PvrExplorerPro\Win\Engine\DishPvr.cpp"
+"G:\PvrExplorerPro\Win\Engine\DishPVR50X.cpp"
+"G:\PvrExplorerPro\Win\Engine\DishPVR522.cpp"
+"G:\PvrExplorerPro\Win\Engine\DishPVR622.cpp"
+"G:\PvrExplorerPro\Win\Engine\DishPVR721.cpp"
+"G:\PvrExplorerPro\Win\Engine\DishPVRFile.cpp"
+"G:\PvrExplorerPro\Win\Engine\DishPvrHdd.cpp"
+"G:\PvrExplorerPro\Win\Engine\DriveIOBase.cpp"
+"G:\PvrExplorerPro\Win\Engine\EnumPVRDrives.cpp"
+"G:\PvrExplorerPro\Win\Engine\ExtractCopy.cpp"
+"G:\PvrExplorerPro\Win\Engine\ExtractProgram.cpp"
+"G:\PvrExplorerPro\Win\Engine\HDD50X.cpp"
+"G:\PvrExplorerPro\Win\Engine\HDD522.cpp"
+"G:\PvrExplorerPro\Win\Engine\HDD622.cpp"
+"G:\PvrExplorerPro\Win\Engine\HDD721.cpp"
+"G:\PvrExplorerPro\Win\Engine\HDDFile.cpp"
+"G:\PvrExplorerPro\Win\Engine\HDDPVR.cpp"
+"G:\PvrExplorerPro\Win\Engine\LOGFILE.CPP"
+"G:\PvrExplorerPro\Win\Options.cpp"
+"G:\PvrExplorerPro\Win\Engine\PACKOUT.CPP"
+"G:\PvrExplorerPro\Win\Engine\PESPipe.cpp"
+"G:\PvrExplorerPro\Win\PvrExplorer.cpp"
+"G:\PvrExplorerPro\Win\PvrExplorerDlg.cpp"
+"G:\PvrExplorerPro\Win\Engine\REPES2K.CPP"
+"G:\PvrExplorerPro\Win\Engine\REPESAUDIO.CPP"
+"G:\PvrExplorerPro\Win\TransparentBitMap.cpp"
+"G:\PvrExplorerPro\Win\Engine\WHICHSTREAMS.CPP"
+"G:\PvrExplorerPro\Win\Engine\WriteCache.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\davidson\LOCALS~1\Temp\RSP4B.tmp" 
+Creating temporary file "C:\DOCUME~1\davidson\LOCALS~1\Temp\RSP4C.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/PvrExplorer.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"G:\PvrExplorerPro\Win\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\davidson\LOCALS~1\Temp\RSP4C.tmp" 
+Creating temporary file "C:\DOCUME~1\davidson\LOCALS~1\Temp\RSP4D.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/PvrExplorerPro.pdb" /machine:I386 /out:"Release/PvrExplorerPro.exe" 
+.\Release\AboutBox.obj
+.\Release\CustomButton.obj
+.\Release\CustomProgress.obj
+.\Release\CustomText.obj
+.\Release\DishPvr.obj
+.\Release\DishPVR50X.obj
+.\Release\DishPVR522.obj
+.\Release\DishPVR622.obj
+.\Release\DishPVR721.obj
+.\Release\DishPVRFile.obj
+.\Release\DishPvrHdd.obj
+.\Release\DriveIOBase.obj
+.\Release\EnumPVRDrives.obj
+.\Release\ExtractCopy.obj
+.\Release\ExtractProgram.obj
+.\Release\HDD50X.obj
+.\Release\HDD522.obj
+.\Release\HDD622.obj
+.\Release\HDD721.obj
+.\Release\HDDFile.obj
+.\Release\HDDPVR.obj
+.\Release\LOGFILE.OBJ
+.\Release\Options.obj
+.\Release\PACKOUT.OBJ
+.\Release\PESPipe.obj
+.\Release\PvrExplorer.obj
+.\Release\PvrExplorerDlg.obj
+.\Release\REPES2K.OBJ
+.\Release\REPESAUDIO.OBJ
+.\Release\StdAfx.obj
+.\Release\TransparentBitMap.obj
+.\Release\WHICHSTREAMS.OBJ
+.\Release\WriteCache.obj
+.\Release\PvrExplorer.res
+]
+Creating command line "link.exe @C:\DOCUME~1\davidson\LOCALS~1\Temp\RSP4D.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+AboutBox.cpp
+CustomButton.cpp
+CustomProgress.cpp
+CustomText.cpp
+DishPvr.cpp
+DishPVR50X.cpp
+DishPVR522.cpp
+DishPVR622.cpp
+DishPVR721.cpp
+DishPVRFile.cpp
+DishPvrHdd.cpp
+DriveIOBase.cpp
+EnumPVRDrives.cpp
+ExtractCopy.cpp
+ExtractProgram.cpp
+HDD50X.cpp
+HDD522.cpp
+HDD622.cpp
+HDD721.cpp
+HDDFile.cpp
+Generating Code...
+Compiling...
+HDDPVR.cpp
+LOGFILE.CPP
+Options.cpp
+PACKOUT.CPP
+PESPipe.cpp
+PvrExplorer.cpp
+PvrExplorerDlg.cpp
+REPES2K.CPP
+REPESAUDIO.CPP
+TransparentBitMap.cpp
+WHICHSTREAMS.CPP
+WriteCache.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+PvrExplorerPro.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

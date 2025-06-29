@@ -1,0 +1,291 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\PvrExplorer.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\PvrExplorer.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PVREXPLORER_DIALOG DIALOGEX 0, 0, 320, 201
+STYLE DS_CENTER | WS_POPUP | WS_VISIBLE | WS_BORDER
+EXSTYLE WS_EX_APPWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+END
+
+IDD_OPTIONS DIALOGEX 0, 0, 330, 182
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Options"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,207,161,50,14
+    CONTROL         "Video Stream only file (Create seperate *.mpv file).",
+                    IDC_VIDEO_CHK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,
+                    22,172,10
+    CONTROL         "Audio Stream only file (Create seperate *.mp2 or *.ac3 file).",
+                    IDC_AUDIO_CHK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,
+                    34,199,10
+    CONTROL         "Create Muxed program file( Video + Audio, *.mpg file).",
+                    IDC_RENDER_CHK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,
+                    46,183,10
+    CONTROL         "Auto Generate Output ( *.mpg ) file name from the program name.",
+                    IDC_AUTO_NAME,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,
+                    58,219,10
+    LTEXT           "Output Path:",IDC_STATIC,22,91,41,8
+    LTEXT           "",IDC_OUTPUT_PATH,24,102,243,10,SS_SUNKEN
+    PUSHBUTTON      "Browse...",IDC_BROWSE,270,102,40,9
+    GROUPBOX        "Output Options",IDC_STATIC,7,7,316,110
+    CONTROL         "Create Program description file ( *.log ).",
+                    IDC_LOG_FILE_CHK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    23,81,137,10
+    CONTROL         "Close application when finished program extraction.",
+                    IDC_CLOSE_CHK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,
+                    129,177,10
+    CONTROL         "Debug Logging",IDC_DEBUG_CHK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,21,141,65,10
+    GROUPBOX        "Application Options",IDC_STATIC,7,119,316,39
+    DEFPUSHBUTTON   "Apply",IDC_APPLY,96,161,50,14
+    EDITTEXT        IDC_AUTO_FORMAT,67,69,157,11,ES_AUTOHSCROLL
+    LTEXT           "Format:",IDC_STATIC,39,70,26,10
+    LTEXT           "%n - program name %i  - Index number %d - Date and time %e - First line EPG",
+                    IDC_STATIC,249,56,66,39,SS_SUNKEN,WS_EX_CLIENTEDGE
+    LTEXT           "--->",IDC_STATIC,232,70,11,8
+END
+
+IDD_ABOUT DIALOGEX 0, 0, 259, 169
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About PVR Explorer Pro"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,144,100,50,14
+    CTEXT           "PVR Explorer Pro Version 2.0.2.x",IDC_STATIC,103,16,144,
+                    12,0,WS_EX_DLGMODALFRAME
+    LTEXT           "Used for archiving recorded programs from your Dish Network 501/508/510/522/622/625/721/921 model recievers and thier ExpressVu equivalent.",
+                    IDC_STATIC,105,31,141,46,SS_SUNKEN
+    LTEXT           "Copyright (c) 2005, Harvey Rabbit.",IDC_STATIC,119,80,
+                    110,8
+    CONTROL         211,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,13,16,88,
+                    146
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,3,0
+ PRODUCTVERSION 2,0,3,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "PvrExplorerPro (501,508,510,522,625,721,921,622)\0"
+            VALUE "FileVersion", "2, 0, 3, 0\0"
+            VALUE "InternalName", "PvrExplorer2\0"
+            VALUE "LegalCopyright", "Copyright (C) 2005, Harvey Rabbit.\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "PvrExplorer.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "PvrExplorerPro\0"
+            VALUE "ProductVersion", "2, 0, 3, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_PVREXPLORER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 194
+    END
+
+    IDD_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 323
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 175
+    END
+
+    IDD_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 162
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BACKGROUND          BITMAP  DISCARDABLE     "res\\Background2.bmp"
+IDB_SYSCLOSE_OUT        BITMAP  DISCARDABLE     "res\\SysCloseout.bmp"
+IDB_SYSCLOSE_IN         BITMAP  DISCARDABLE     "res\\SysClosein.bmp"
+IDB_SYSCLOSE_OVER       BITMAP  DISCARDABLE     "res\\SysCloseover.bmp"
+IDB_OPTION_OUT          BITMAP  DISCARDABLE     "res\\Optionout.bmp"
+IDB_OPTION_IN           BITMAP  DISCARDABLE     "res\\Optionin.bmp"
+IDB_OPTION_OVER         BITMAP  DISCARDABLE     "res\\Optionover.bmp"
+IDB_EXTRACT_OUT         BITMAP  DISCARDABLE     "res\\ExtractButtonOut.bmp"
+IDB_EXTRACT_IN          BITMAP  DISCARDABLE     "res\\ExtractButtonIn.bmp"
+IDB_EXTRACT_OVER        BITMAP  DISCARDABLE     "res\\ExtractButtonOver.bmp"
+IDB_CHECK_OUT           BITMAP  DISCARDABLE     "res\\CheckOff.bmp"
+IDB_CHECK_OFF           BITMAP  DISCARDABLE     "res\\CheckOff.bmp"
+IDB_CHECK_ON            BITMAP  DISCARDABLE     "res\\CheckOn.bmp"
+IDB_CHECK_OVER          BITMAP  DISCARDABLE     "res\\CheckOver.bmp"
+IDB_BTN_BASE            BITMAP  DISCARDABLE     "res\\ExtractButtonBase.bmp"
+IDB_PROGRESS_TRENCH     BITMAP  DISCARDABLE     "res\\ProgressTrench.bmp"
+IDB_PROGRESS_TAIL       BITMAP  DISCARDABLE     "res\\ProgressTail.bmp"
+IDB_PROGRESS_HEAD       BITMAP  DISCARDABLE     "res\\ProgressHead.bmp"
+IDB_PROGRESS_BODY       BITMAP  DISCARDABLE     "res\\ProgressBody.bmp"
+IDB_CANCEL_OUT          BITMAP  DISCARDABLE     "res\\CancelOutx.bmp"
+IDB_CANCEL_IN           BITMAP  DISCARDABLE     "res\\CancelInx.bmp"
+IDB_CANCEL_OVER         BITMAP  DISCARDABLE     "res\\CancelOverx.bmp"
+IDB_SCROLL_TRACK        BITMAP  DISCARDABLE     "res\\Scrolltrench.bmp"
+IDB_SCROLL_THUMB        BITMAP  DISCARDABLE     "res\\ScrollThumb.bmp"
+IDB_SCROLL_UP_OUT       BITMAP  DISCARDABLE     "res\\ScrollupOut.bmp"
+IDB_SCROLL_UP_IN        BITMAP  DISCARDABLE     "res\\ScrollupIn.bmp"
+IDB_SCROLL_UP_OVER      BITMAP  DISCARDABLE     "res\\ScrollupOver.bmp"
+IDB_SCROLL_DN_OUT       BITMAP  DISCARDABLE     "res\\ScrolldnOut.bmp"
+IDB_SCROLL_DN_IN        BITMAP  DISCARDABLE     "res\\ScrolldnIn.bmp"
+IDB_SCROLL_DN_OVER      BITMAP  DISCARDABLE     "res\\ScrolldnOver.bmp"
+IDB_PIC_501             BITMAP  DISCARDABLE     "res\\50X.bmp"
+IDB_PIC_522             BITMAP  DISCARDABLE     "res\\522.bmp"
+IDB_PIC_721             BITMAP  DISCARDABLE     "res\\721.bmp"
+IDB_ABOUT_OUT           BITMAP  DISCARDABLE     "res\\AboutOut.bmp"
+IDB_ABOUT_IN            BITMAP  DISCARDABLE     "res\\AboutIn.bmp"
+IDB_ABOUT_OVER          BITMAP  DISCARDABLE     "res\\AboutOver.bmp"
+IDB_HARVEY              BITMAP  DISCARDABLE     "res\\harvey.bmp"
+IDB_ALL_OUT             BITMAP  DISCARDABLE     "res\\Allout.bmp"
+IDB_ALL_IN              BITMAP  DISCARDABLE     "res\\Allin.bmp"
+IDB_ALL_OVER            BITMAP  DISCARDABLE     "res\\AllOver.bmp"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\PvrExplorer.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
