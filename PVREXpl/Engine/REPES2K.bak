@@ -1,0 +1,63 @@
+// RePES2K.h: interface for the RePES2K class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef __REPES2K__
+#define __REPES2K__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+
+
+//----------------------------- definitions --------------------
+
+#define		BUCKET_FREE		0xFFFFFFFF
+#define		BUCKET_PARTIAL	0x8F
+
+#define		MAX_BUCKETS		1000
+#define		BUCKET_SIZE		2034
+
+
+//------------------------------- classes -----------------------
+class RePES2K  
+{
+public:
+	int GetBucketStatus( int *TotalBuckets);
+	void Cancel();
+	bool			IsFlushed();
+	void			Flush();
+	unsigned char	*GetNextPES( );
+	void			RePESData( unsigned char *Data, unsigned long Length, int64 PTS, char Type);
+	RePES2K();
+	virtual ~RePES2K();
+
+private:
+	bool			m_Canceled;
+	char			m_PartialType;
+	int64			m_PTSOffset;
+	double			m_FrameCount;
+	char			m_LastFrameType;
+	int64			m_PartialPTS;
+	void			FreeMutex();
+	void			AquireMutex();
+	unsigned char	m_PartialBucket[BUCKET_SIZE];
+	void			SendBucket(int number);
+	int64			m_NewPTS;
+	int				m_BucketState[MAX_BUCKETS];
+	int				m_BucketSequence;
+	int				GetNextFreeBucket();
+	int				m_PartialFilled;
+	unsigned char	m_Bucket[MAX_BUCKETS][BUCKET_SIZE];
+	int				m_CurrentBucketNumber;
+#ifdef __MS__
+	HANDLE			m_Mutex;
+	HANDLE			m_Semaphore;
+#endif
+#ifdef __MAC__
+	sem_t			*m_Mutex;
+	sem_t			*m_Semaphore;
+#endif
+};
+
+#endif // __REPES2K__

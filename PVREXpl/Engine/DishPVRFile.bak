@@ -1,0 +1,37 @@
+// DishPVRFile.h: interface for the DishPVRFile class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef __DISHPVRFILE__
+#define __DISHPVRFILE__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+#include "DishPvr.h"
+#include "LogFile.h"
+
+//----------------------------- definitions --------------------
+
+
+//------------------------------- classes -----------------------
+
+class DishPVRFile : public DishPvr  
+{
+public:
+	HANDLE OpenAudioFile( int ProgramIndex, int Options );
+	HANDLE OpenVideoFile( int ProgramIndex);
+	bool IsSingleTransport();
+	int GetAudioOptions( int ProgramIndex);
+	bool GetProgramInfo( char *Name, char *DateTime, char *Duration, char *ChannelName, int *Channel, char *Description, int ProgramIndex);
+	int GetNumberOfPrograms();
+	DishPVRFile();
+	virtual ~DishPVRFile();
+private:
+	char m_FileName[128][256];
+	int m_NumFilesFound;
+
+};
+
+#endif // __DISHPVRFILE__
+

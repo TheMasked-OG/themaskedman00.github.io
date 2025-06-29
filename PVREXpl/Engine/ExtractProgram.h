@@ -1,0 +1,164 @@
+//===========================================================================
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//============================================================================
+
+// ExtractProgram.h: interface for the ExtractProgram class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef __EXTRACTPROGRAM__
+#define __EXTRACTPROGRAM__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+#include "DishPvr.h"
+#include "PESPipe.h"
+#include "RePES2K.h"
+#include "RePESAudio.h"
+#include "WhichStreams.h"
+#include "LogFile.h"
+
+
+//----------------------------- definitions --------------------
+typedef struct {
+	int			Status;
+	int64		TotalBytesToProcess;
+	int64		TotalBytesProcessed;
+	int			VideoX;
+	int			VideoY;
+	int			AudioRate;
+	char		AudioType[64];
+	double		AudioOffset;
+	int			FrameNumber;
+	double		VideoRate;
+} STREAM_INFO, *pSTREAM_INFO;
+
+typedef struct {
+	int			FrameLength;
+	char		frameType;
+	int			HeaderOffset;
+	int64		PTS;
+	int64		DTS;
+} FRAME_INFO, *pFRAME_INFO;
+
+#define		EXTRACT_STATUS_IDLE		0
+#define		EXTRACT_STATUS_RUNNING	1
+#define		EXTRACT_STATUS_CANCELED	2
+#define		EXTRACT_STATUS_ERROR	3
+
+#ifdef __MAC__
+#define		INPUT_BUFFER_SIZE  (188 * 512)  //512 ts packets
+#endif
+
+#ifdef __MS__
+#define		INPUT_BUFFER_SIZE  (188 * 1024)  //1024 ts packets
+#endif
+
+#define		MAX_VPIPE_SIZE		(512 * 1024) //512K
+#define		MAX_APIPE_SIZE		(128 * 1024) //128K
+
+#define	MAX_SAMPLES  50
+
+typedef struct {
+	unsigned long	DataOffset;
+	int64			Pts;
+} SAMPLES, *pSAMPLE;
+
+typedef struct {
+	unsigned long	NumSamples;
+	SAMPLES			Samples[MAX_SAMPLES];
+} SAMPLE_SCAN, *pSAMPLE_SCAN;
+
+
+//------------------------------- classes -----------------------
+class ExtractProgram  
+{
+public:
+	unsigned long GetAudioMinPtsOffset( unsigned char *Buffer );
+	void	GetVideoInfo(unsigned char *Data, unsigned long len);
+	int64	GetPTS( unsigned char *Data);
+	bool	IsRFF(unsigned char *Data, unsigned long len);
+	void	SetGOPTimeCode( int64 PTS, pFRAME_INFO frm);
+	void	AdjustTemporalReference(unsigned long FrameNum);
+	void	ScanForSamples(unsigned char *Data, unsigned long Length, pSAMPLE_SCAN samples);
+	void	LocateStartingFrames();
+	bool	ReadTransportStream( unsigned char *TransportBuffer, int *InputTail);
+	void	ProcessTransportStream( unsigned char *TransportBuffer, unsigned char *VPipeBuffer, unsigned char *APipeBuffer, int *InputTail, int *InputPtr, int *VTail, int *VPtr, int *ATail, int *APtr );
+	bool	ReadVideoFile( unsigned char *VPipeBuffer, int *VTail );
+	bool	ReadAudioFile( unsigned char *APipeBuffer, int *ATail );
+	bool	ProcessVStream( unsigned char *VPipeBuffer, int *VTail, int *VPtr, bool InputDone );
+	bool	ProcessAStream( unsigned char *APipeBuffer, int *ATail, int *APtr, bool InputDone );
+	void	Cancel();
+	void	GetProgressInfo( pSTREAM_INFO info );	
+	void	StartExtractProcess( DishPvr *pvr, int ProgramNumber, WhichStreams *streams, char *FileNameBase);
+	ExtractProgram();
+	virtual ~ExtractProgram();
+
+	int			m_Status;
+	bool		m_IsCanceled;
+	DishPvr		*m_pvr;
+	HANDLE		m_AudioFileHandle;
+	HANDLE		m_VideoFileHandle;
+	PESPipe		*m_VideoPipe;
+	PESPipe		*m_AudioPipe;
+	RePES2K		*m_VideoRepack;
+	RePESAudio	*m_AudioRepack;
+#ifdef __MS__
+	HANDLE		m_OutputThreadHandle;
+	HANDLE		m_VideoThreadHandle;
+	HANDLE		m_AudioThreadHandle;
+	HANDLE		m_InputWorkerThread;
+	HANDLE		m_AudioSyncSem;
+#endif
+#ifdef __MAC__
+	pthread_t	m_OutputThreadHandle;
+	pthread_t	m_VideoThreadHandle;
+	pthread_t	m_AudioThreadHandle;
+	pthread_t	m_InputWorkerThread;
+	sem_t		*m_AudioSyncSem;
+#endif
+
+	LogFile		*m_Log;
+	WhichStreams *m_Streams;
+	bool		m_VideoThreadDone;
+	bool		m_AudioThreadDone;
+	bool		m_OutputThreadDone;
+	bool		m_InputThreadDone;
+
+	int			m_VideoX;
+	int			m_VideoY;
+	int64		m_TotalByteToProcess;
+	int64		m_BytesProcessed;
+	int			m_CurFrameCount;
+	char		m_FileNameBase[300];
+
+private:
+	void		GetTime( int64 Pts, unsigned char *Hour, unsigned char *Min, unsigned char *Sec, unsigned char *Frame);
+	void		AdjustSliceData( int CurAudFrame, int64 PTS);
+	int			m_VideoPID;
+	int			m_AudioPID;
+	int			m_CompData1;
+	int			m_CompData2;
+
+	double		m_FrameRate;
+	double		m_AudioOffset;
+};
+
+#endif // __EXTRACTPROGRAM__

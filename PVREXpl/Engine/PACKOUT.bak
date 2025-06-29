@@ -1,0 +1,33 @@
+// PackOut.h: interface for the PackOut class.
+//
+//////////////////////////////////////////////////////////////////////
+#ifndef __PACKOUT__
+#define __PACKOUT__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+#include "WriteCache.h"	
+
+
+//----------------------------- definitions --------------------
+#define PACK_HEADER_SIZE	14
+
+
+//------------------------------- classes -----------------------
+class PackOut : public  WriteCache
+{
+public:
+	void		SystemHeaderOut();
+	void		OutPutPackHeader(int64 Clock);
+	int64		GetMuxRate();
+	PackOut(bool AC3);
+	virtual ~PackOut();
+
+private:
+	bool	m_IsAC3;
+	int64	m_PackCount;
+	int64	m_TimeBase;
+};
+
+#endif // __PACKOUT__

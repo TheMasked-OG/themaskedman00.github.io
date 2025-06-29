@@ -1,0 +1,32 @@
+// HDDPVR.h: interface for the HDDPVR class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef __HDDPVR__
+#define __HDDPVR__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+#include "DriveIOBase.h"
+
+//----------------------------- definitions --------------------
+
+
+//------------------------------- classes -----------------------
+class HDDPVR : public DriveIOBase  
+{
+public:
+	virtual unsigned long GetPvrFileTime( char *FileName ) = 0;
+	virtual void  AdjustAudioFileSize( HANDLE FileHandle ) = 0;
+	virtual int64 GetPvrFileSize( HANDLE FileHandle ) = 0;
+	virtual bool IsPvrDrive() = 0;
+	virtual void ClosePvrFile( HANDLE FileHandle ) = 0;
+	virtual unsigned long ReadPvrFile( HANDLE fileHandle, unsigned char *Data, unsigned long Length) = 0;
+	virtual HANDLE OpenPvrFile( char *FileName ) = 0;
+	//HDDPVR();
+	//virtual ~HDDPVR();
+
+};
+
+#endif // __HDDPVR__

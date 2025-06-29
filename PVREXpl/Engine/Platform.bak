@@ -1,0 +1,25 @@
+// Platform.h: interface for the DishPVR50X class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef __PLATFORM__
+#define __PLATFORM__
+
+//this file is the main switch for platform
+
+//#define  __x64__		//this defines the intel arcitecture
+#define  __x86__
+
+//#define  __PwPC__		//this defines the power pc
+
+#define  __MS__			//this defines Microsoft OS
+
+//#define  __MAC__		// this defines Apple MAC OS
+
+//#define  __LINUX__		// this defines the LINUX OS
+
+//#define  __64BIT__		// this defines the 64bit architecture
+
+#define  __32BIT__		// this defines the 32bit architecture
+
+#endif __PLATFORM__

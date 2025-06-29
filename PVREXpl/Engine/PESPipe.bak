@@ -1,0 +1,51 @@
+// PESPipe.h: interface for the PESPipe class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef __PESPIPE__
+#define __PESPIPE__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+
+
+//----------------------------- definitions --------------------
+#define  MAX_QUEUE_SIZE		512
+
+
+//------------------------------- classes -----------------------
+class PESPipe  
+{
+public:
+	void GetPipeStatus( int *Head, int *Size, int *Waiting);
+	void Cancel();
+	void *PeekPESFrame(int offset);
+	bool IsFull();
+	void PutPESFrame( void *Ptr );
+	void * GetPESFrame();
+	PESPipe();
+	virtual ~PESPipe();
+
+private:
+	void	AquireMutex();
+	void	FreeMutex();
+
+	void	*m_Buffers[MAX_QUEUE_SIZE];
+	int		m_Head;
+	int		m_Tail;
+	bool	m_Waiting;
+	int		m_Size;
+	bool	m_Cancel;
+
+#ifdef __MS__
+	HANDLE			m_Mutex;
+	HANDLE			m_Semaphore;
+#endif
+#ifdef __MAC__
+	sem_t			*m_Mutex;
+	sem_t			*m_Semaphore;
+#endif
+};
+
+#endif // __PESPIPE__

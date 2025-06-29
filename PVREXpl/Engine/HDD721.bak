@@ -1,0 +1,97 @@
+// HDD721.h: interface for the HDD50X class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef __HDD721__
+#define __HDD721__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+#include "HDDPVR.h"
+#include "partition.h"
+#include "xfslinux.h"
+#include "LogFile.h"
+//----------------------------- definitions --------------------
+
+#define		XFS_FILE_TYPE_FILE	1
+#define		XFS_FILE_TYPE_DIR	2
+
+typedef struct {
+	unsigned long	InodeNumber;
+	unsigned long	EntryType;
+	int64			Size;
+	unsigned char	Name[256];
+} XFSDIRENTRY, *pXFSDIRENTRY;
+
+#define		MAX_DIR_ENTRIES		256
+
+typedef struct {
+	unsigned long	NumEntries;
+	XFSDIRENTRY		DirEntry[MAX_DIR_ENTRIES];
+} XFSDIR, *pXFSDIR;
+
+#define		POINTER_TYPE_DIR	1
+#define		POINTER_TYPE_IFILE	2
+#define		POINTER_TYPE_FILE	3
+
+
+typedef struct {
+	unsigned long	FileInodeNumber;
+	int64			FileLength;
+	int64			FilePosition;
+	int				DataPointerType;
+	union {
+		unsigned char	*InternalFile;
+		pSGELEMENT		SGPointer;
+		pXFSDIR			DirData;
+	} Data;
+} XFSFILEPOINTER, *pXFSFILEPOINTER;
+
+typedef struct {
+	pXFSFILEPOINTER		fPtr;
+	unsigned long		CurrentEntry;
+} XFSFIND, *pXFSFIND;
+
+#define		ERR_NO_MORE_XFS_ENTRIES	3
+#define		MAX_721_PARTITIONS	10
+
+//------------------------------- classes -----------------------
+class HDD721 : public HDDPVR  
+{
+public:
+	unsigned long GetPvrFileTime( char *FileName );
+	void  AdjustAudioFileSize( HANDLE FileHandle );
+	int64 GetPvrFileSize( HANDLE FileHandle );
+	bool IsPvrDrive();
+	void ClosePvrFile( HANDLE FileHandle );
+	unsigned long ReadPvrFile( HANDLE fileHandle, unsigned char *Data, unsigned long Length);
+	HANDLE OpenPvrFile( char *FileName );
+	HDD721();
+	virtual ~HDD721();
+
+private:
+	unsigned short	Cvts( unsigned short x);
+	unsigned long	Cvt( unsigned long x);
+
+	int				GetNumberOfPartitions();
+	void			MountXFS( int PartNum );
+	void			ConvertEndian(void *Ptr, int Len);
+	HANDLE			OpenXFSFile(HANDLE DirHandle, char *Name);
+	xfs_dinode_t	*GetInode(unsigned long InodeNumber);
+	pXFSDIR			GetDirectoryListing(xfs_dinode_t *iPtr);
+	unsigned long	ConvertExtent(xfs_bmbt_rec_32_t *ext, unsigned long *SectorCount);
+	pSGELEMENT		BuildSGList(xfs_dinode_t *iPtr);
+
+
+	unsigned long	m_PartStart[MAX_721_PARTITIONS];
+	unsigned long	m_PartSize[MAX_721_PARTITIONS];
+	int				m_NumberOfPartitions;
+	bool			m_IsMounted;
+	unsigned long	m_PartitionStart;
+	xfs_sb_t		*m_Super;
+	unsigned char	m_SuperData[512];
+	HANDLE			m_Root;
+};
+
+#endif // __HDD721__

@@ -1,0 +1,34 @@
+// HDDFile.h: interface for the HDDFile class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef __HDDFILE__
+#define __HDDFILE__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+#include "HDDPVR.h"
+#include "LogFile.h"
+
+//----------------------------- definitions --------------------
+
+//------------------------------- classes -----------------------
+class HDDFile : public HDDPVR  
+{
+public:
+	unsigned long GetPvrFileTime( char *FileName );
+	void  AdjustAudioFileSize( HANDLE FileHandle );
+	int64 GetPvrFileSize( HANDLE FileHandle );
+	bool IsPvrDrive();
+	void ClosePvrFile( HANDLE FileHandle );
+	unsigned long ReadPvrFile( HANDLE fileHandle, unsigned char *Data, unsigned long Length);
+	HANDLE OpenPvrFile( char *FileName );
+	HDDFile();
+	virtual ~HDDFile();
+
+private:
+
+};
+
+#endif // __HDDFILE__

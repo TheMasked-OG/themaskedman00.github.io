@@ -1,0 +1,44 @@
+// WriteCache.h: interface for the WriteCache class.
+//
+//////////////////////////////////////////////////////////////////////
+#ifndef __WRITECACHE__
+#define __WRITECACHE__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+#include "WriteCache.h"	
+
+
+//----------------------------- definitions --------------------
+#define  CACHE_BUFFER_SIZE	(2000 * 2048)
+
+
+//------------------------------- classes -----------------------
+
+class WriteCache  
+{
+public:
+	void		FlushCache();
+#ifdef __MS__
+	void		SetFileHandle(HANDLE FileHandle);
+#endif
+#ifdef __MAC__
+	void		SetFileHandle(int FileHandle);
+#endif
+	void		WriteCachedFile( unsigned char *Buffer, unsigned long Length);
+	WriteCache();
+	virtual ~WriteCache();
+
+private:
+#ifdef __MS__
+	HANDLE			m_Handle;
+#endif
+#ifdef __MAC__
+	int				m_Handle;
+#endif
+	unsigned long	m_OutBufferPos;
+	unsigned char	*m_OutBuffer;
+};
+
+#endif // __WRITECACHE__

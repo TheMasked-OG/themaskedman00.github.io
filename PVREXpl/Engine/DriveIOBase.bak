@@ -1,0 +1,36 @@
+// DriveIOBase.h: interface for the DriveIOBase class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef __DRIVEIOBASE__
+#define __DRIVEIOBASE__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+#include "LogFile.h"
+
+//----------------------------- definitions --------------------
+
+#define  HDD_BLOCK_SIZE	 512
+
+//------------------------------- classes -----------------------
+class DriveIOBase  
+{
+public:
+	bool ReadBlock( unsigned long Lba, unsigned char *Data, unsigned long NumBlocks);
+	void ClosePvrDrive();
+	bool OpenPVRDrive( char *Path );
+	DriveIOBase();
+	virtual ~DriveIOBase();
+
+private:
+#ifdef __MS__
+	HANDLE	m_DiskFileHandle;
+#else
+	int		m_DiskFileHandle;  //MAC and Linux us int
+#endif
+
+};
+
+#endif // __DRIVEIOBASE__

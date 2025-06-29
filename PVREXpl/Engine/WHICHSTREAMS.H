@@ -1,0 +1,59 @@
+//===========================================================================
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//============================================================================
+
+#ifndef __WHICHSTREAMS__
+#define __WHICHSTREAMS__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+
+//----------------------------- definitions --------------------
+
+
+//------------------------------- classes -----------------------
+class WhichStreams 
+{
+// Construction
+public:
+	char m_AutoFormat[64];
+	void SaveOptions();
+	void			LoadOptions();
+	WhichStreams();   // standard constructor
+	~WhichStreams();
+
+	bool			m_AudioIsAC3;
+	unsigned char	m_DefaultPath[360];
+	bool			m_CloseChk;
+	bool			m_AutoGenNameChk;
+	bool			m_DebugChk;
+	bool			m_LogChk;
+	bool			m_VideoChk;
+	bool			m_AudioChk;
+	bool			m_RenderChk;
+	bool			m_AlterAudioChk;
+
+private:
+};
+
+//{{AFX_INSERT_LOCATION}}
+// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+
+#endif // !defined(AFX_WHICHSTREAMS_H__136F7153_E056_4348_8258_EADCE8D27E7A__INCLUDED_)

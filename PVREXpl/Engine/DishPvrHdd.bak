@@ -1,0 +1,36 @@
+// DishPvrHdd.h: interface for the DishPvrHdd class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef __DISHPVRHDD__
+#define __DISHPVRHDD__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+#include "HDDPVR.h"
+
+//----------------------------- definitions --------------------
+
+
+//------------------------------- classes -----------------------
+class DishPvrHdd  
+{
+public:
+	unsigned long	GetPvrFileTime( char *FileName );
+	void			AdjustAudioFileSize( HANDLE FileHandle );
+	int64			GetPvrFileSize( HANDLE FileHandle );
+	void			ClosePvrFile( HANDLE FileHandle );
+	unsigned long	ReadPvrFile( HANDLE fileHandle, unsigned char *Data, unsigned long Length);
+	HANDLE			OpenPvrFile( char *FileName );
+	int				SetPvrHdd( char *Path, int Type);
+	DishPvrHdd();
+	virtual ~DishPvrHdd();
+
+	int m_PvrType;
+	char m_FileRootPath[256];
+private:
+	HDDPVR			*m_PvrHdd;
+};
+
+#endif // __DISHPVRHDD__

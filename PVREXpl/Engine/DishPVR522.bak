@@ -1,0 +1,41 @@
+// DishPVR50X.h: interface for the DishPVR50X class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef __DISHPVR522__
+#define __DISHPVR522__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+#include "DishPvr.h"
+#include "LogFile.h"
+
+//----------------------------- definitions --------------------
+
+
+//------------------------------- classes -----------------------
+
+class DishPVR522 : public DishPvr  
+{
+public:
+	HANDLE OpenAudioFile( int ProgramIndex, int Options );
+	HANDLE OpenVideoFile( int ProgramIndex);
+	bool IsSingleTransport();
+	int GetAudioOptions( int ProgramIndex);
+	bool GetProgramInfo( char *Name, char *DateTime, char *Duration, char *ChannelName, int *Channel, char *Description, int ProgramIndex);
+	int GetNumberOfPrograms();
+	DishPVR522();
+	virtual ~DishPVR522();
+private:
+	int GetIndexFromIndex( int AbsIndex );
+	bool IsEntryValid( int AbsIndex);
+	unsigned short	Cvts( unsigned short x);
+	unsigned long	Cvt( unsigned long x);
+
+	unsigned char	*m_CatalogData;
+	int				m_NumberOfPrograms;
+
+};
+
+#endif // __DISHPVR522__

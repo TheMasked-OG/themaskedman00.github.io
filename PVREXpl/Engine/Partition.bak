@@ -1,0 +1,31 @@
+//**************** partition header file **************
+
+#ifndef __PARTITION__
+#define __PARTITION__
+
+typedef struct {			// --------- Partition entry -------
+	unsigned char	peBootable;
+	unsigned char	peBeginHead;
+	unsigned char	peBeginSector;
+	unsigned char	peBeginCyl;
+	unsigned char	FileSystem;
+	unsigned char	peEndHead;
+	unsigned char	peEndSector;
+	unsigned char	peEndCyl;
+	unsigned long	peStartSector;
+	unsigned long	peLength;	
+} PARTITIONENTRY, *PARTITIONENTRYPTR;
+
+typedef struct {
+	unsigned long		sgStartLba;
+	unsigned long		sgLength;
+} SGELEMENT, *pSGELEMENT;
+
+#define  MAX_SG_LIST_SIZE  80000
+
+typedef struct {
+	unsigned long NumSgElements;
+	SGELEMENT	  SgElement[MAX_SG_LIST_SIZE];
+} SGLIST, *pSGLIST;
+
+#endif

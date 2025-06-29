@@ -1,0 +1,32 @@
+// DishPvr.h: interface for the DishPvr class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef __DISHPVR__
+#define __DISHPVR__
+
+//----------------------------- headers ------------------------
+#include "Platform.h"
+#include "GlobalDefs.h"
+#include "DishPvrHdd.h"
+
+//----------------------------- definitions --------------------
+
+
+//------------------------------- classes -----------------------
+class DishPvr : public DishPvrHdd  
+{
+public:
+	virtual HANDLE OpenAudioFile( int ProgramIndex, int Options ) = 0;
+	virtual HANDLE OpenVideoFile( int ProgramIndex) = 0;
+	virtual bool IsSingleTransport() = 0;
+	virtual int GetAudioOptions( int ProgramIndex) = 0;
+	virtual bool GetProgramInfo( char *Name, char *DateTime, char *Duration, char *ChannelName, int *Channel, char *Description, int ProgramIndex) = 0;
+	virtual int GetNumberOfPrograms() = 0;
+
+//	DishPvr();
+//	virtual ~DishPvr();
+
+};
+
+#endif //__DISHPVR__
