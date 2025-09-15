@@ -7,7 +7,8 @@ function FindProxyForURL(url, host) {
         "vrclinking.com", 
         "linkingbotvrchat.github.io",
 	"pastebin.com",
-	"idlecube-cryo.github.io"
+	"idlecube-cryo.github.io",
+	"makimakicrab.github.io"
     ];
 
     // Proxy server address
@@ -29,3 +30,4 @@ function FindProxyForURL(url, host) {
     // Default: connect directly
     return "DIRECT";
 }
+
