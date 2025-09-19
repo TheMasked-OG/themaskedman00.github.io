@@ -8,7 +8,7 @@ POSTER_SIZE = (512, 1024)
 ATLAS_SIZE = (2048, 2048)
 
 # Find all banner*.png files
-files = [f for f in os.listdir(INPUT_DIR) if f.lower().startswith("banner") and f.lower().endswith(".png")]
+files = [f for f in os.listdir(INPUT_DIR) if f.lower().startswith("banner") and f.lower().endswith(".png") and f.lower() != "bannerurl.png"]
 files.sort()
 
 posters_per_row = ATLAS_SIZE[0] // POSTER_SIZE[0]  # 4
