@@ -50,7 +50,7 @@
       const lines = text.split("\n").map(l => l.trim()).filter(l => l && !l.startsWith("//"));
 
       patreons = lines.map(line => {
-        const parts = line.split("||");
+        const parts = line.split("|pp|");
         return {
           raw: line, // keep raw just in case
           name: parts[0],
@@ -177,7 +177,7 @@
       const lines = ["//Header"];
       patreons.forEach(p => {
         if (p.hasBanner && p.slot) {
-          lines.push(`${p.name}|ShowBanner|Slot:${p.slot}`);
+          lines.push(`${p.name}|pp|ShowBanner|pp|Slot:${p.slot}`);
         } else {
           lines.push(p.name);
         }
