@@ -2,7 +2,9 @@ name: Build Atlases
 
 on:
   push:
-    branches: [ "Site" ]   # run when changes are pushed to Site branch
+    branches: [ "Site" ]
+    paths:
+      - 'MafiaBar/banner*.png'   # run when changes are pushed to Site branch
   workflow_dispatch:        # also allow manual run from Actions tab
   
 permissions:
