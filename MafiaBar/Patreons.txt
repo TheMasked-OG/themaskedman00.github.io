@@ -1,18 +1,18 @@
 //Patreons go here
-༒ŘûƁŸ ̪ĹĂŇĖ༒|ShowBanner|
-Jayden_G420|ShowBanner|
-zebratbone|ShowBanner|
-coldhearted1000|ShowBanner|
-Tanzen_Katzen|ShowBanner|
-Snaype Orochi|ShowBanner|
-TheKingBee|ShowBanner|
+༒ŘûƁŸ ̪ĹĂŇĖ༒|ShowBanner|Slot:0
+Jayden_G420|ShowBanner|Slot:1
+zebratbone|ShowBanner|Slot:2
+coldhearted1000|ShowBanner|Slot:3
+Tanzen_Katzen|ShowBanner|Slot:4
+Snaype Orochi|ShowBanner|Slot:5
+TheKingBee|ShowBanner|Slot:6
 FleetFenrirStar & RunaXR
 DaddyRedneck
-TacticalYumi|ShowBanner|
-~༒Beatrix ༒~|ShowBanner|
-itsyagirlRose11|ShowBanner|
-Silverleafy|ShowBanner|
-Dammit Stella|ShowBanner|
+TacticalYumi|ShowBanner|Slot:7
+~༒Beatrix ༒~|ShowBanner|Slot:8
+itsyagirlRose11|ShowBanner|Slot:9
+Silverleafy|ShowBanner|Slot:10
+Dammit Stella|ShowBanner|Slot:11
 GodFather-Lux
 A Wild Slooth
 ~ Galaxy_Wolf ~
@@ -22,22 +22,22 @@ MidniteStarBrst
 Tarkon96
 _Redkitsune_
 HighLifeDrifter edbb
-Gspot101&LyssaGolwyn|ShowBanner|
+Gspot101&LyssaGolwyn|ShowBanner|Slot:12
 ĐɆ₳Đ₣ØӾɆ₴
-リアム 写真術|ShowBanner|
-°ɳєssie°|ShowBanner|
-Like_A_Boss491|ShowBanner|
-RedKitsune|ShowBanner|
-dimmitri|ShowBanner|
--Crow-|ShowBanner|
+リアム 写真術|ShowBanner|Slot:13
+°ɳєssie°|ShowBanner|Slot:14
+Like_A_Boss491|ShowBanner|Slot:15
+RedKitsune|ShowBanner|Slot:16
+dimmitri|ShowBanner|Slot:17
+-Crow-|ShowBanner|Slot:18
 ° strayless °
-aaron|ShowBanner|
-DylanPsycho|ShowBanner|
-TigerKingDd|ShowBanner|
-Gray_Azar|ShowBanner|
+aaron|ShowBanner|Slot:19
+DylanPsycho|ShowBanner|Slot:20
+TigerKingDd|ShowBanner|Slot:21
+Gray_Azar|ShowBanner|Slot:22
 ATOMICTNT
 <3 Darkwolf <3
 militaryGang
 Evercie
-DΛЯKПIGΉƬ ΛПGΣᄂ|ShowBanner|
-Tealoafy|ShowBanner|
+DΛЯKПIGΉƬ ΛПGΣᄂ|ShowBanner|Slot:23
+Tealoafy|ShowBanner|Slot:24
