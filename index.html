@@ -55,7 +55,7 @@
           raw: line, // keep raw just in case
           name: line.replace("|ShowBanner|",""),
           hasBanner: line.includes("|ShowBanner|"),
-          slot: hasBanner ? bannerIndex++ : null,
+          slot: line.includes("|ShowBanner|") ? bannerIndex++ : null,
         };
       });
 
