@@ -23,6 +23,7 @@
   <div id="preview">
     <h3>Preview</h3>
     <img id="bannerPreview" src="" alt="No Banner" style="max-width:200px; display:block; margin-bottom:1rem;">
+    <span id="bannerIndex"> banner#.png</span>
   </div>
 
   <div id="controls">
@@ -84,16 +85,23 @@
     function updatePreview() {
       const p = patreons[selectedIndex];
       const img = document.getElementById("bannerPreview");
+      const BInd = document.getElementById("bannerIndex");
+      
       if (p?.hasBanner && p.slot !== null) {
+        let _slot = p.slot;
+        if(p.slot >= 4) _slot = p.slot + 1;
+        BInd.textContent = `banner${_slot}.png`;
         if (pendingBanners[p.slot]) {
-          img.src = URL.createObjectURL(pendingBanners[p.slot]); // show new banner
+          
+          img.src = URL.createObjectURL(pendingBanners[_slot]); // show new banner
         } else {
-          img.src = `MafiaBar/banner${p.slot}.png?${Date.now()}`; // show existing
+          img.src = `MafiaBar/banner${_slot}.png?${Date.now()}`; // show existing
         }
         img.style.display = "block";
       } else {
         img.src = "";
         img.style.display = "none";
+        BInd.textContent = "no banner :(";
       }
     }
 
