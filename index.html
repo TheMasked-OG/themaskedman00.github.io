@@ -48,14 +48,14 @@
       const res = await fetch("MafiaBar/Patreons.txt");
       const text = await res.text();
       const lines = text.split("\n").map(l => l.trim()).filter(l => l && !l.startsWith("//"));
-
+      let bannerIndex = 0;
       patreons = lines.map((line, index )=> {
         const parts = line.split("|pp|");
         return {
           raw: line, // keep raw just in case
           name: line.replace("|ShowBanner|",""),
           hasBanner: line.includes("|ShowBanner|"),
-          slot: index + 1,
+          slot: hasBanner ? bannerIndex++ : null,
         };
       });
 
