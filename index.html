@@ -49,13 +49,13 @@
       const text = await res.text();
       const lines = text.split("\n").map(l => l.trim()).filter(l => l && !l.startsWith("//"));
 
-      patreons = lines.map(line => {
+      patreons = lines.map((line, index )=> {
         const parts = line.split("|pp|");
         return {
           raw: line, // keep raw just in case
-          name: parts[0],
-          hasBanner: parts.includes("ShowBanner"),
-          slot: parts.find(p => p.startsWith("Slot:"))?.split(":")[1] || null,
+          name: line.replace("|ShowBanner|",""),
+          hasBanner: line.includes("|ShowBanner|"),
+          slot: index + 1,
         };
       });
 
@@ -177,7 +177,7 @@
       const lines = ["//Header"];
       patreons.forEach(p => {
         if (p.hasBanner && p.slot) {
-          lines.push(`${p.name}|pp|ShowBanner|pp|Slot:${p.slot}`);
+          lines.push(`${p.name}|ShowBanner|`);
         } else {
           lines.push(p.name);
         }
