@@ -48,4 +48,4 @@ DJHusky001
 Mxted|ShowBanner|
 Andemix|ShowBanner|
 DaddyRedneck|ShowBanner|
-Clownkid
+Clownkid|ShowBanner|
