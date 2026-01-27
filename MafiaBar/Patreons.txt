@@ -53,3 +53,4 @@ temporalAlter
 auzzie_TFR
 Glitche_codex
 MixedWeirdo
+Lother|ShowBanner|
