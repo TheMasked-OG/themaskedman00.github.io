@@ -1,5 +1,5 @@
 //Patreons go here
-<size=7>༒ŘûƁŸ ̪ĹĂŇĖ༒|ShowBanner|
+<size=6>༒ŘûƁŸ ̪ĹĂŇĖ༒|ShowBanner|
 Jayden_G420|ShowBanner|
 zebratbone|ShowBanner|
 coldhearted1000|ShowBanner|
@@ -54,3 +54,4 @@ auzzie_TFR
 Glitche_codex
 MixedWeirdo
 Lother|ShowBanner|
+Sammy31415
