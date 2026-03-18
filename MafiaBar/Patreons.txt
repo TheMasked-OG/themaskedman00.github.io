@@ -55,3 +55,4 @@ Glitche_codex
 MixedWeirdo
 Lother|ShowBanner|
 Sammy31415
+EricGroner19|ShowBanner|
