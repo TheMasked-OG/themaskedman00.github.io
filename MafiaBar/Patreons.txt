@@ -56,4 +56,4 @@ MixedWeirdo
 Lother|ShowBanner|
 Sammy31415
 EricGroner19|ShowBanner|
-Dinorawrrrr
+Dinorawrrrr|ShowBanner|
